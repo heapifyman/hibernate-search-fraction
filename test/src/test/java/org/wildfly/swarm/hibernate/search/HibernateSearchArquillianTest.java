@@ -44,6 +44,5 @@ public class HibernateSearchArquillianTest implements ContainerFactory {
     @Test
     @RunAsClient
     public void testNothing() {
-
     }
 }
