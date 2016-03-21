@@ -36,12 +36,6 @@
       <artifactId>hibernate-search-runtime</artifactId>
       <scope>provided</scope>
     </dependency>
-
-    <dependency>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>undertow</artifactId>
-    </dependency>
-
   </dependencies>
 
 </project>

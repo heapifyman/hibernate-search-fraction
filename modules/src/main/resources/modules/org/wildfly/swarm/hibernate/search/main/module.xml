@@ -8,6 +8,5 @@
     </system>
 
     <module name="org.wildfly.swarm.hibernate.search" slot="api" export="true" services="export"/>
-
   </dependencies>
 </module>

@@ -11,7 +11,7 @@
 
     <module name="org.wildfly.swarm.hibernate.search"/>
 
-    <module name="org.jboss.as.logging"/>
+    <module name="org.hibernate.search.orm" services="import"/>
   </dependencies>
 
 </module>
