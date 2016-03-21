@@ -4,6 +4,8 @@
     <artifact name="org.wildfly.swarm:hibernate-search-api:${project.version}"/>
   </resources>
   <dependencies>
-    <module name="org.wildfly.swarm.spi" slot="api"/>
+    <module name="org.wildfly.swarm.container"/>
+    <module name="org.wildfly.swarm.configuration"/>
+    <module name="org.jboss.shrinkwrap"/>
   </dependencies>
 </module>

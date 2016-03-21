@@ -25,12 +25,6 @@ public class HibernateSearchConfiguration extends AbstractServerConfiguration<Hi
 
     public HibernateSearchConfiguration() {
         super(HibernateSearchFraction.class);
-
-        deployment("org.jolokia:jolokia-war:war:*")
-                .as("jolokia.war")
-                .configure((fraction, archive) -> {
-//                    archive.as(WARArchive.class).setContextRoot(fraction.context());
-                });
     }
 
     @Override

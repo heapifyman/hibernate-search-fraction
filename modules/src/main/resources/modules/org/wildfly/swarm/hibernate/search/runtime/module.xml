@@ -5,13 +5,15 @@
   </resources>
 
   <dependencies>
-    <module name="org.wildfly.swarm.spi" slot="runtime"/>
-    <module name="org.wildfly.swarm.undertow"/>
     <module name="org.jboss.shrinkwrap"/>
-
     <module name="org.wildfly.swarm.hibernate.search"/>
+    <module name="org.wildfly.swarm.container"/>
+    <module name="org.wildfly.swarm.container" slot="runtime"/>
+    <module name="org.wildfly.swarm.configuration"/>
 
     <module name="org.hibernate.search.orm" services="import"/>
+    <module name="org.hibernate.search.engine" services="import"/>
+    <module name="org.hibernate.search.serialization-avro" services="import"/>
   </dependencies>
 
 </module>
