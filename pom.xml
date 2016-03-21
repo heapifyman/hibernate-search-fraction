@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2015 Red Hat, Inc. and/or its affiliates.
+  ~
+  ~ Licensed under the Apache License version 2.0, available at http://www.apache.org/licenses/LICENSE-2.0
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.wildfly.swarm</groupId>
+    <artifactId>parent</artifactId>
+    <version>6</version>
+    <relativePath />
+  </parent>
+
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>hibernate-search-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <name>WildFly Swarm: Hibernate Search</name>
+  <description>WildFly Swarm: Hibernate Search</description>
+
+  <packaging>pom</packaging>
+
+  <scm>
+    <connection>scm:git:git@github.com:wildfly-swarm/wildfly-swarm-hibernate-search.git</connection>
+    <developerConnection>scm:git:git@github.com:wildfly-swarm/wildfly-swarm-hibernate-search.git</developerConnection>
+    <url>https://github.com/wildfly-swarm/wildfly-swarm-hibernate-search</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <properties>
+    <version.hibernate.search>5.6.0.Alpha3</version.hibernate.search>
+    <version.swarm.core>1.0.0.Beta3</version.swarm.core>
+    <version.swarm.spi>1.0.0.Beta3</version.swarm.spi>
+    <version.swarm.fraction-plugin>1.0.0.Beta4</version.swarm.fraction-plugin>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.wildfly.swarm</groupId>
+          <artifactId>wildfly-swarm-fraction-plugin</artifactId>
+          <version>${version.swarm.fraction-plugin}</version>
+          <executions>
+            <execution>
+              <phase>process-classes</phase>
+              <goals>
+                <goal>generate</goal>
+                <goal>jandex</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>spi</artifactId>
+        <version>${version.swarm.spi}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>hibernate-search</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>hibernate-search-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>hibernate-search-modules</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>hibernate-search-runtime</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>undertow</artifactId>
+        <version>${version.swarm.core}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-search-modules</artifactId>
+        <classifier>wildfly-10-dist</classifier>
+        <type>zip</type>
+        <version>${version.hibernate.search}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <modules>
+    <module>hibernate-search</module>
+
+    <module>api</module>
+    <module>runtime</module>
+    <module>modules</module>
+  </modules>
+
+</project>
